@@ -61,8 +61,7 @@ export class Address {
 export function isAddressObject(address: object | null): boolean {
   return (
     address != null &&
-    (address instanceof Address ||
-      Object.getPrototypeOf(address).constructor.name === Address.prototype.constructor.name)
+    (address instanceof Address || (Object.getPrototypeOf(address) && Object.getPrototypeOf(address).constructor && Object.getPrototypeOf(address).constructor.name) === Address.prototype.constructor.name)
   );
 }
 
